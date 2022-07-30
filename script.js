@@ -8,8 +8,8 @@ const playerImage = new Image();
 
 // playerImage.src = 
 
-let x = 0;
-let y = 0;
+let x = 50;
+let y = 50;
 let x2 = CANVAS_WIDTH;
 let y2 = CANVAS_HEIGHT;
 
@@ -17,14 +17,36 @@ function animate() {
     ctx.clearRect(0,0,CANVAS_HEIGHT,CANVAS_HEIGHT);
 
     ctx.fillRect(x,y,100,100);
-    // ctx.fillRect(100,100,x,x);
-    if (x < (CANVAS_WIDTH - 100)){
+    ctx.fillRect(x+25,y-50,50,50);
+
+    ctx.fillRect(x+100,y+100,50,50);
+    ctx.fillRect(x-50,y-50,50,50);
+    ctx.fillRect(x-50,y+100,50,50);
+    ctx.fillRect(x+100,y-50,50,50);
+
+    if (x < (CANVAS_WIDTH - 150) && (y == 50)){
         x++;
-        y++;
+        // y++;
         requestAnimationFrame(animate);
 
     }
+    else if (x >= (CANVAS_WIDTH - 150) && (y < (CANVAS_HEIGHT - 150))){
+        // x--;
+        y++;
+        requestAnimationFrame(animate);
+    }
+    else if ((x > 50) && (y > 50)){
+        x--;
+        // y--;
+        requestAnimationFrame(animate);
+    }
+    else if ((x == 50) && (y > 50)){
+        y--;
+        // y--;
+        requestAnimationFrame(animate);
+    }
     else{
+
         requestAnimationFrame(animate);
 
     }
